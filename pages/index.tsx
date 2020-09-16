@@ -13,7 +13,7 @@ import 'dotenv'
 export default function Home() {
   
   const api = axios.create({
-      baseURL: process.env.NODE_ENV
+      baseURL: 'http://apiformaccr-com-br.umbler.net/'
   })
   const toast = useToast()
 
