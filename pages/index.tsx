@@ -7,8 +7,6 @@ import ModalComp from '../components/ModalComp'
 
 import axios from 'axios';
 
-import 'dotenv'
-
 
 export default function Home() {
   
