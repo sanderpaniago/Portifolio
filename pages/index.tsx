@@ -11,7 +11,7 @@ import axios from 'axios';
 export default function Home() {
   
   const api = axios.create({
-      baseURL: 'http://apiformaccr-com-br.umbler.net/'
+      baseURL: 'http://apiformaccr-com-br.umbler.net'
   })
   const toast = useToast()
 
