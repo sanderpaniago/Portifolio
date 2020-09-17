@@ -17,8 +17,8 @@ export default (req:NextApiRequest, res:NextApiResponse) => {
        port: 587,
        secured: true,
        auth: {
-           user: process.env.USUARIO_SMTP,
-           pass: process.env.SENHA_SMTP,
+           user: `${process.env.USUARIO_SMTP}`,
+           pass: `${process.env.SENHA_SMTP}`,
        }
    })
 
