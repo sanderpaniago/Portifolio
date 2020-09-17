@@ -10,9 +10,6 @@ import axios from 'axios';
 
 export default function Home() {
   
-  const api = axios.create({
-      baseURL: 'http://apiformaccr-com-br.umbler.net'
-  })
   const toast = useToast()
 
   const [nome, setNome] = useState('')
@@ -83,7 +80,7 @@ export default function Home() {
   function handleCreateSendEmail(e: FormEvent) {
     e.preventDefault();
 
-     api.post('setEmail', {
+     axios.post('/api/setEmail', {
        nome,
        email,
        telefone,
