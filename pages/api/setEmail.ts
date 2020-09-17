@@ -13,18 +13,18 @@ export default (req:NextApiRequest, res:NextApiResponse) => {
     console.log(req.body)
 
    let transporter =  nodemailer.createTransport({
-       host: 'smtp.office365.com',
+       host: 'smtp.mail.yahoo.com',
        port: 587,
-       secure: false,
+       secured: true,
        auth: {
-           user: 'enviacontatofmcr@outlook.com',
-           pass: '@159753sSa',
+           user: process.env.USUARIO_SMTP,
+           pass: process.env.SENHA_SMTP,
        }
    })
 
    transporter.sendMail({
-       from: `"${nome}" <enviacontatofmcr@outlook.com>`, // sender address
-       to: 'enviacontatofmcr@gmail.com', // list of receivers
+       from: `"${nome}" <contatoformaccr@yahoo.com>`, // sender address
+       to: 'sanderpaniagoev@gmail.com', // list of receivers
        subject: `${assunto}`, // Subject line
        text: `${menssagem}`, // plain text body
        html:  `
