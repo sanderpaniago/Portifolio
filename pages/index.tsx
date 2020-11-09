@@ -7,8 +7,24 @@ import ModalComp from '../components/ModalComp'
 
 import axios from 'axios';
 
+import { InferGetStaticPropsType } from 'next'
 
-export default function Home() {
+type Post = {
+  author: string
+  content: string
+}
+
+export const getStaticProps = async () => {
+    const res = await fetch('https://api.github.com/users/sanderpaniago')
+    const avatar = await res.json()
+        return {
+            props: {
+            avatar,
+            },
+}
+}
+
+function Home({ avatar }: InferGetStaticPropsType<typeof getStaticProps>) {
   
   const toast = useToast()
 
@@ -170,7 +186,7 @@ export default function Home() {
         <Box borderBottom='3px solid red'  backgroundColor='gray.500'>
           <Box d='flex' flexDir='column' alignItems='center' w='100%' justifyContent='center'>
             <Box mt='-70px' d='flex' backgroundColor='gray.500' w='190px' h='190px' alignItems='center' justifyContent='center' borderRadius='90%'>
-              <Avatar  h='150px' w='150px' name='Sander paniago' src='/avatar.jpeg'/>
+              <Avatar  h='150px' w='150px' name='Sander paniago' src={avatar.avatar_url}/>
             </Box>
             <Heading color='#011C40' fontSize={['2xl','4xl','5xl','5xl']} as='h3'>Sander Pereira Paniago</Heading>
             <Text color='gray.600' fontWeight='bold' textTransform='uppercase' fontSize='sm'>desenvolvedor front-end</Text>
@@ -249,3 +265,5 @@ export default function Home() {
     </Box>
   )
 }
+
+export default Home
