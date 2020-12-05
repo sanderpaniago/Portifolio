@@ -31,8 +31,8 @@ export default function ModalComp() {
               <ButtonGroup w='100%' h='350px' d='flex' flexDir='column' alignItems='center' justifyContent='space-around'>
                 <Button leftIcon="email" h='50px' w='100%' backgroundColor='red.400' _hover={{bg: 'red.600'}} variant="solid"><Link href='mailto:sanderppaniago@gmail.com'>Email</Link></Button>
                 <Button leftIcon={FaWhatsapp} h='50px' w='100%' backgroundColor='red.400' _hover={{bg: 'red.600'}} variant="solid"><Link href='https://api.whatsapp.com/send?phone=5567996124946'>Whatsapp</Link></Button>
-                <Button leftIcon={FaFacebookSquare} h='50px' w='100%' backgroundColor='red.400' _hover={{bg: 'red.600'}} variant="solid"><Link href='https://www.facebook.com/formaccostarica'>Facebook</Link></Button>
-                <Button leftIcon={FaInstagram} h='50px' w='100%' backgroundColor='red.400' _hover={{bg: 'red.600'}} variant="solid"><Link href='https://www.instagram.com/formaccr/'> Instagram</Link></Button>
+                <Button leftIcon={FaFacebookSquare} h='50px' w='100%' backgroundColor='red.400' _hover={{bg: 'red.600'}} variant="solid"><Link href='https://www.facebook.com/sander.pererapaniago'>Facebook</Link></Button>
+                <Button leftIcon={FaInstagram} h='50px' w='100%' backgroundColor='red.400' _hover={{bg: 'red.600'}} variant="solid"><Link href='https://www.instagram.com/sander_paniago/'> Instagram</Link></Button>
               </ButtonGroup>
             </ModalBody>
   
