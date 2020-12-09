@@ -10,9 +10,6 @@ import axios from 'axios';
 import ModalComp from '../components/ModalComp'
 
 
-
-
-
 export const getStaticProps = async () => {
   const res = await fetch('https://api.github.com/users/sanderpaniago')
   const avatar = await res.json()
