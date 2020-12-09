@@ -163,7 +163,7 @@ function Home({ avatar }: InferGetStaticPropsType<typeof getStaticProps>) {
           </Flex>
 
           <Flex flexDir='column' marginTop='98px'>
-            <Heading marginBottom='10' fontFamily='Play' color='red.500' textAlign='center' fontSize={['2xl', '2xl', '3xl', '3xl']}>Alguns projetos prublicados</Heading>
+            <Heading marginBottom='10' fontFamily='Play' color='red.500' textAlign='center' fontSize={['2xl', '2xl', '3xl', '3xl']}>Alguns projetos publicados</Heading>
             <Box d='flex' justifyContent='center'>
             <Box d='flex' flexDir='column' maxWidth='300px' maxH='418px' backgroundColor='#28282C' w='full' h='full' p='4' borderRadius='4px' marginRight='4'>
                 <Image src='https://user-images.githubusercontent.com/52095222/100553774-255f7d00-3266-11eb-9b7f-927c836999c9.gif' borderRadius='4px' />
