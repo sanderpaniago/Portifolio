@@ -1,0 +1,33 @@
+.swiperSkills {
+    height: 185px;
+}
+.swiperSkills .swiper-pagination{
+    margin-bottom: -15px;
+}
+.swiper-pagination-bullet {
+    background: #FFF;
+}
+
+.swiper-pagination-bullet-active {
+    background: #D80032;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background: #FFF;
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+    
+}
+
+.swiper-button-prev:after, .swiper-button-next:after {
+    font-size: 16px;
+    font-weight: bolder;
+    color: #D80032;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}

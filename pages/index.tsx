@@ -1,14 +1,17 @@
-import { useState, FormEvent } from 'react'
-import { Text, Flex, Box, Heading, Button, Link, Icon, Avatar, FormControl, FormLabel, Input, Textarea, InputLeftAddon, InputGroup, InputLeftElement, useToast, Image } from '@chakra-ui/core'
-
-import { FaGithub, FaInstagram, FaFacebookSquare, FaWhatsapp, FaNodeJs, FaHtml5, FaCss3, FaReact, FaJs } from 'react-icons/fa'
-import { SiNextDotJs, SiTypescript, SiTailwindcss } from 'react-icons/si'
+import { useState, FormEvent, useEffect } from 'react'
 import { InferGetStaticPropsType } from 'next'
 import { useRouter } from 'next/router'
+
+import { Text, Flex, Box, Heading, Button, Link, Icon, Avatar, FormControl, FormLabel, Input, Textarea, InputLeftAddon, InputGroup, InputLeftElement, useToast, Image } from '@chakra-ui/core'
+import { FaGithub, FaInstagram, FaFacebookSquare, FaWhatsapp, FaNodeJs, FaHtml5, FaCss3, FaReact, FaJs } from 'react-icons/fa'
+import { SiNextDotJs, SiTypescript, SiTailwindcss } from 'react-icons/si'
 import axios from 'axios';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 import ModalComp from '../components/ModalComp'
 
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 export const getStaticProps = async () => {
   const res = await fetch('https://api.github.com/users/sanderpaniago')
@@ -31,6 +34,12 @@ function Home({ avatar }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [telefone, setTelefone] = useState('')
   const [assunto, setAssunto] = useState('')
   const [menssagem, setMessage] = useState('')
+  const [tamanhoTelaWidth, setTamanhotela] = useState(0)
+
+  useEffect(()=> {
+    setTamanhotela(window.innerWidth)
+
+  }, [])
 
 
   function handleCreateSendEmail(e: FormEvent) {
@@ -119,82 +128,108 @@ function Home({ avatar }: InferGetStaticPropsType<typeof getStaticProps>) {
         <Box d='flex' flexDir='column' w={['100%', '90%', '85%', '75%']} m='8rem auto'>
           <Heading fontFamily='Play' color='red.500' textAlign='center' fontSize={['2xl', '2xl', '3xl', '3xl']}>Algumas tecnologias que utilizo</Heading>
           <Flex mt='8' justifyContent='space-between' flexWrap='wrap'>
-            <Box w='138px' h='146px' backgroundColor='#28282C' borderRadius='8px' >
-              <Box width='100%' h='70%' marginBottom='2' padding='2' marginTop='2'>
-                <FaReact size='full' />
+            <Swiper 
+              slidesPerView={tamanhoTelaWidth < 1024 ? 2.5 : 5} 
+              loop={true} zoom={true} 
+              spaceBetween={18}  
+              navigation
+              pagination={{ clickable: true }}
+              className='swiperSkills'
+            >
+              <SwiperSlide>
+                <Box w='138px' h='146px' backgroundColor='#28282C' borderRadius='8px' >
+                  <Box width='100%' h='70%' marginBottom='2' padding='2' marginTop='2'>
+                    <FaReact size='full' />
+                  </Box>
+                  <Text fontWeight='bold' textAlign='center'>ReactJs</Text>
+                </Box>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Box w='138px' h='146px' backgroundColor='#28282C' borderRadius='8px' >
+                  <Box width='100%' h='70%' marginBottom='2' padding='2' marginTop='2'>
+                    <SiNextDotJs size='full' />
+                  </Box>
+                  <Text fontWeight='bold' textAlign='center'>NextJs</Text>
+                </Box>
+              </SwiperSlide>
+              <SwiperSlide>
+              <Box w='138px' h='146px' backgroundColor='#28282C' borderRadius='8px' >
+                <Box width='100%' h='70%' marginBottom='2' padding='2' marginTop='2'>
+                  <FaCss3 size='full' />
+                </Box>
+                <Text fontWeight='bold' textAlign='center'>CSS3</Text>
               </Box>
-              <Text fontWeight='bold' textAlign='center'>ReactJs</Text>
-            </Box>
-
-            <Box w='138px' h='146px' backgroundColor='#28282C' borderRadius='8px' >
-              <Box width='100%' h='70%' marginBottom='2' padding='2' marginTop='2'>
-                <SiNextDotJs size='full' />
-              </Box>
-              <Text fontWeight='bold' textAlign='center'>NextJs</Text>
-            </Box>
-
-            <Box w='138px' h='146px' backgroundColor='#28282C' borderRadius='8px' >
-              <Box width='100%' h='70%' marginBottom='2' padding='2' marginTop='2'>
-                <FaCss3 size='full' />
-              </Box>
-              <Text fontWeight='bold' textAlign='center'>CSS3</Text>
-            </Box>
-
-            <Box w='138px' h='146px' backgroundColor='#28282C' borderRadius='8px' >
-              <Box width='100%' h='70%' marginBottom='2' padding='2' marginTop='2'>
-                <FaNodeJs size='full' />
-              </Box>
-              <Text fontWeight='bold' textAlign='center'>NodeJs</Text>
-            </Box>
-
-            <Box w='138px' h='146px' backgroundColor='#28282C' borderRadius='8px' >
-              <Box width='100%' h='70%' marginBottom='2' padding='2' marginTop='2'>
-                <SiTypescript size='full' />
-              </Box>
-              <Text fontWeight='bold' textAlign='center'>TypeScript</Text>
-            </Box>
-
-            <Box w='138px' h='146px' backgroundColor='#28282C' borderRadius='8px' >
-              <Box width='100%' h='70%' marginBottom='2' padding='2' marginTop='2'>
-                <SiTailwindcss size='full' />
-              </Box>
-              <Text fontWeight='bold' textAlign='center'>tailwindcss</Text>
-            </Box>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Box w='138px' h='146px' backgroundColor='#28282C' borderRadius='8px' >
+                  <Box width='100%' h='70%' marginBottom='2' padding='2' marginTop='2'>
+                    <FaNodeJs size='full' />
+                  </Box>
+                  <Text fontWeight='bold' textAlign='center'>NodeJs</Text>
+                </Box>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Box w='138px' h='146px' backgroundColor='#28282C' borderRadius='8px' >
+                  <Box width='100%' h='70%' marginBottom='2' padding='2' marginTop='2'>
+                    <SiTypescript size='full' />
+                  </Box>
+                  <Text fontWeight='bold' textAlign='center'>TypeScript</Text>
+                </Box>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Box w='138px' h='146px' backgroundColor='#28282C' borderRadius='8px' >
+                  <Box width='100%' h='70%' marginBottom='2' padding='2' marginTop='2'>
+                    <SiTailwindcss size='full' />
+                  </Box>
+                  <Text fontWeight='bold' textAlign='center'>tailwindcss</Text>
+                </Box>
+              </SwiperSlide>
+              
+            </Swiper>
           </Flex>
 
-          <Flex flexDir='column' marginTop='98px'>
+          <Flex flexDir='column' marginTop='98px' w='100%'>
             <Heading marginBottom='10' fontFamily='Play' color='red.500' textAlign='center' fontSize={['2xl', '2xl', '3xl', '3xl']}>Alguns projetos publicados</Heading>
-            <Box d='flex' justifyContent='center'>
-            <Box d='flex' flexDir='column' maxWidth='300px' maxH='418px' backgroundColor='#28282C' w='full' h='full' p='4' borderRadius='4px' marginRight='4'>
-                <Image src='https://user-images.githubusercontent.com/52095222/100553774-255f7d00-3266-11eb-9b7f-927c836999c9.gif' borderRadius='4px' />
-                <Box h='60%'>
-                  <Heading fontSize='lg' textAlign='center' margin='3'>Palpite-Box</Heading>
-                  <Text fontSize='sm'>O projeto tem como objetivo recolher a opinião ou sugestão do cliente e armazenar em uma tabela do google sheet, e em troca lhe presentear com um cupom ou qualquer recompensa que o dono do estabelecimento ofereça.</Text>
+            <Box w='100%'>
+            <Swiper slidesPerView={tamanhoTelaWidth < 1024 ? 1.2 : 3} loop={true} navigation>
+              <SwiperSlide>
+                <Box d='flex' flexDir='column' maxWidth='300px' maxH='418px' backgroundColor='#28282C' w='full' h='full' p='4' borderRadius='4px' marginRight='4'>
+                  <Image src='https://user-images.githubusercontent.com/52095222/100553774-255f7d00-3266-11eb-9b7f-927c836999c9.gif' borderRadius='4px' />
+                  <Box h='60%'>
+                    <Heading fontSize='lg' textAlign='center' margin='3'>Palpite-Box</Heading>
+                    <Text fontSize='sm'>O projeto tem como objetivo recolher a opinião ou sugestão do cliente e armazenar em uma tabela do google sheet, e em troca lhe presentear com um cupom ou qualquer recompensa que o dono do estabelecimento ofereça.</Text>
 
-                  <Button marginTop='4' onClick={()=> router.push('https://github.com/sanderpaniago/Palpite-box.git')}>Acesse o repositório</Button>
+                    <Button marginTop='4' onClick={()=> router.push('https://github.com/sanderpaniago/Palpite-box.git')}>Acesse o repositório</Button>
+                  </Box>
+                  
                 </Box>
-                
-              </Box>
-              <Box d='flex' flexDir='column' maxWidth='300px' maxH='418px' backgroundColor='#28282C' marginTop='50px' w='full' h='full' p='4' borderRadius='4px' marginRight='4'>
-                <Image src='https://user-images.githubusercontent.com/52095222/100553774-255f7d00-3266-11eb-9b7f-927c836999c9.gif' borderRadius='4px' />
-                <Box h='60%'>
-                  <Heading fontSize='lg' textAlign='center' margin='3'>Palpite-Box</Heading>
-                  <Text fontSize='sm'>O projeto tem como objetivo recolher a opinião ou sugestão do cliente e armazenar em uma tabela do google sheet, e em troca lhe presentear com um cupom ou qualquer recompensa que o dono do estabelecimento ofereça.</Text>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Box d='flex' flexDir='column' maxWidth='300px' maxH='418px' backgroundColor='#28282C' w='full' h='full' p='4' borderRadius='4px' marginRight='4'>
+                  <Image src='https://user-images.githubusercontent.com/52095222/100553774-255f7d00-3266-11eb-9b7f-927c836999c9.gif' borderRadius='4px' />
+                  <Box h='60%'>
+                    <Heading fontSize='lg' textAlign='center' margin='3'>Palpite-Box</Heading>
+                    <Text fontSize='sm'>O projeto tem como objetivo recolher a opinião ou sugestão do cliente e armazenar em uma tabela do google sheet, e em troca lhe presentear com um cupom ou qualquer recompensa que o dono do estabelecimento ofereça.</Text>
 
-                  <Button marginTop='4' onClick={()=> router.push('https://github.com/sanderpaniago/Palpite-box.git')}>Acesse o repositório</Button>
+                    <Button marginTop='4' onClick={()=> router.push('https://github.com/sanderpaniago/Palpite-box.git')}>Acesse o repositório</Button>
+                  </Box>
                 </Box>
-                
-              </Box>
-              <Box d='flex' flexDir='column' maxWidth='300px' maxH='418px' backgroundColor='#28282C' w='full' h='full' p='4' borderRadius='4px'>
-                <Image src='https://user-images.githubusercontent.com/52095222/100553774-255f7d00-3266-11eb-9b7f-927c836999c9.gif' borderRadius='4px' />
-                <Box h='60%'>
-                  <Heading fontSize='lg' textAlign='center' margin='3'>Palpite-Box</Heading>
-                  <Text fontSize='sm'>O projeto tem como objetivo recolher a opinião ou sugestão do cliente e armazenar em uma tabela do google sheet, e em troca lhe presentear com um cupom ou qualquer recompensa que o dono do estabelecimento ofereça.</Text>
+              </SwiperSlide>
 
-                  <Button marginTop='4' onClick={()=> router.push('https://github.com/sanderpaniago/Palpite-box.git')}>Acesse o repositório</Button>
+              <SwiperSlide>
+                <Box d='flex' flexDir='column' maxWidth='300px' maxH='418px' backgroundColor='#28282C' w='full' h='full' p='4' borderRadius='4px' marginRight='4'>
+                  <Image src='https://user-images.githubusercontent.com/52095222/100553774-255f7d00-3266-11eb-9b7f-927c836999c9.gif' borderRadius='4px' />
+                  <Box h='60%'>
+                    <Heading fontSize='lg' textAlign='center' margin='3'>Palpite-Box</Heading>
+                    <Text fontSize='sm'>O projeto tem como objetivo recolher a opinião ou sugestão do cliente e armazenar em uma tabela do google sheet, e em troca lhe presentear com um cupom ou qualquer recompensa que o dono do estabelecimento ofereça.</Text>
+
+                    <Button marginTop='4' onClick={()=> router.push('https://github.com/sanderpaniago/Palpite-box.git')}>Acesse o repositório</Button>
+                  </Box>
+                  
                 </Box>
-                
-              </Box>
+              </SwiperSlide>
+              
+            </Swiper>
             </Box>
           </Flex>
         </Box>
