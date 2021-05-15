@@ -1,4 +1,4 @@
-# Meu Laboratorio
+# Meu Laboratorio.
 
 ## 🔬 Tecnologias
 
