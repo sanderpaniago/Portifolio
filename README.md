@@ -1,30 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Meu Laboratorio
 
-## Getting Started
+## 🔬 Tecnologias
 
-First, run the development server:
+esse projeto foi desenvolvido com:
 
-```bash
-npm run dev
-# or
-yarn dev
+- ReactJs
+- NextJs
+- TypeScript
+- Chakra UI
+
+
+## 💻 Projeto
+
+Este é meu site pessoal, esta em desenvolvimento e tem muita coisa por vir ainda, bem vindo ao meu laboratório.
+
+## 📝 Pré-requisitos:
+
+Você precisa do NodeJs e um gerenciador de dependências(NPM ou YARN) em sua maquina.
+
+### instalando as dependências:
+
+```sh
+// instalando as dependencias:
+npm install
+// ou 
+yarn install
+
+// executando o projeto:
+npm dev
+// ou
+yarn dev 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 👨🏻‍💻 Author:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- **Sander Paniago** - [LinkedIn](https://www.linkedin.com/in/sander-paniago/) - [instagram](https://www.instagram.com/sander_paniago/)
 
-## Learn More
+## 🚀 Build
 
-To learn more about Next.js, take a look at the following resources:
+link para a [demo](https://sanderpaniago.dev/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🗝 licenças
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Este projeto é licenciado sobre a licença MIT - [LICENSE.md](LICENSE.md) para mais informações.
