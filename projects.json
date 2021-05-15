@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Palpite-Box",
+        "description": "O projeto tem como objetivo recolher a opinião ou sugestão do cliente e armazenar em uma tabela do google sheet, e em troca lhe presentear com um cupom ou qualquer recompensa que o dono do estabelecimento ofereça.",
+        "image": "https://user-images.githubusercontent.com/52095222/100553774-255f7d00-3266-11eb-9b7f-927c836999c9.gif",
+        "linkRep": "https://github.com/sanderpaniago/Palpite-box.git",
+        "linkDemo": "https://palpitebox.sanderpaniago.dev/"
+    },
+    {
+        "name": "Proform",
+        "description": "O projeto basease em uma aplicação para criação de formularios dinamicos, onde qualquer usuario pode criar seu formulario e compartilhar com quem ele quiser.",
+        "image": "/proform.png",
+        "linkRep":"https://github.com/sanderpaniago/Proform",
+        "linkDemo": "https://proform.sanderpaniago.dev/"
+    },
+    {
+        "name": "Agenda-Online",
+        "description": "O projeto tem como objetivo ajudar o cliente a fazer a criação de agendamentos no google agenda do empreededor, apos informar o nome, data, hora e o tipo do servico, o cliente pode efetuar o agendamento. Os serviços vem direto de uma planilha do google sheets tornando essa parte do aplicativo dinamica.",
+        "image": "https://user-images.githubusercontent.com/52095222/105729853-0565d600-5f04-11eb-85b6-70da81ba2d71.gif",
+        "linkRep":"https://github.com/sanderpaniago/agenda-online",
+        "linkDemo": "https://agendaonline.sanderpaniago.dev/"
+    },
+    {
+        "name": "SportsBet",
+        "description": "Clone do site SportsBet",
+        "image": "/sport.png",
+        "linkRep":"https://github.com/sanderpaniago/clone-sportsbet",
+        "linkDemo": "https://sports.sanderpaniago.dev/"
+    },
+    {
+        "name": "POC - Login",
+        "description": "O projeto consiste em POC de um sistema bem simples de login, utilizando Next.js e firebase, o sistema consiste em uma tela de login onde é feito uma busca no banco de dados e é feita uma validação simples se o usuário esta cadastrado no banco. possui uma tela de cadastro onde é feito o cadastro do usuário",
+        "image": "/login.png",
+        "linkRep":"https://github.com/sanderpaniago/login-poc",
+        "linkDemo": "https://dash.sanderpaniago.dev/"
+    }
+]

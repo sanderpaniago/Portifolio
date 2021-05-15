@@ -9,6 +9,8 @@ import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
+import projects from '../projects.json'
+
 import ModalComp from '../components/ModalComp'
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
@@ -83,6 +85,7 @@ function Home({ avatar }: InferGetStaticPropsType<typeof getStaticProps>) {
             backgroundImage="url('/background.jpeg')"
             backgroundPosition='bottom'
             backgroundRepeat='no-repeat'
+            backgroundSize="cover"
             h='100vh'
             w='100%'
             position='absolute'
@@ -103,7 +106,7 @@ function Home({ avatar }: InferGetStaticPropsType<typeof getStaticProps>) {
           </Flex>
 
         </Box>
-        <Flex w='85%' margin='0 auto' mb='100px' flexDir={['column', 'column', 'row', "row"]} marginTop='100px'>
+        <Flex w='85%' margin='0 auto' mb='100px' flexDir={['column', 'column', 'row', "row"]} marginTop='100px' maxW="1240px">
           <Flex width={['85%', '85', '45%', '45%']} mb={['8', '8', '0', '0']} direction='column'>
             <Heading fontSize='48px' textTransform='uppercase' alignItems='center' color='red.500' >
               Ola, Eu sou Sander
@@ -114,8 +117,8 @@ function Home({ avatar }: InferGetStaticPropsType<typeof getStaticProps>) {
 
         </Flex>
       </Box>
-      <Box borderBottom='3px solid red' bgImage="url('bg-main.png')" backgroundRepeat='no-repeat' backgroundPosition='center' backgroundSize='100%'  >
-        <Box d='flex' flexDir='column' alignItems='center' w='100%' justifyContent='center'>
+      <Box borderBottom='3px solid red' >
+        <Box d='flex' flexDir='column' alignItems='center' w='100%' justifyContent='center' maxW="1240px" marginX="auto">
           <Box mt='-70px' d='flex' backgroundColor='gray.500' w='190px' h='190px' alignItems='center' justifyContent='center' borderRadius='90%'>
             <Avatar h='150px' w='150px' name='Sander paniago' src={avatar.avatar_url} />
           </Box>
@@ -125,7 +128,7 @@ function Home({ avatar }: InferGetStaticPropsType<typeof getStaticProps>) {
           <Text mt={6} textAlign='center' fontSize={['sm', 'sm', 'md', 'xl']} color='white' w='85%'>Sou desenvolvedor front-end júnior, com uma paixão em estudar sobre a área, trabalhei por um tempo como técnico em TI, atualmente estou trabalhando com a tecnologia React principalmente para criação de webSites e web App. </Text>
         </Box >
 
-        <Box d='flex' flexDir='column' w={['100%', '90%', '85%', '75%']} m='8rem auto'>
+        <Box d='flex' flexDir='column' w={['100%', '90%', '85%', '75%']} m='8rem auto' maxW="1240px">
           <Heading fontFamily='Play' color='red.500' textAlign='center' fontSize={['2xl', '2xl', '3xl', '3xl']}>Algumas tecnologias que utilizo</Heading>
           <Flex mt='8' justifyContent='space-between' flexWrap='wrap'>
             <Swiper 
@@ -191,44 +194,25 @@ function Home({ avatar }: InferGetStaticPropsType<typeof getStaticProps>) {
           <Flex flexDir='column' marginTop='98px' w='100%'>
             <Heading marginBottom='10' fontFamily='Play' color='red.500' textAlign='center' fontSize={['2xl', '2xl', '3xl', '3xl']}>Alguns projetos publicados</Heading>
             <Box w='100%'>
-            <Swiper slidesPerView={tamanhoTelaWidth < 1024 ? 1.2 : 3} loop={true} navigation>
-              <SwiperSlide>
-                <Box d='flex' flexDir='column' maxWidth='300px' maxH='418px' backgroundColor='#28282C' w='full' h='full' p='4' borderRadius='4px' marginRight='4'>
-                  <Image src='https://user-images.githubusercontent.com/52095222/100553774-255f7d00-3266-11eb-9b7f-927c836999c9.gif' borderRadius='4px' />
-                  <Box h='60%'>
-                    <Heading fontSize='lg' textAlign='center' margin='3'>Palpite-Box</Heading>
-                    <Text fontSize='sm'>O projeto tem como objetivo recolher a opinião ou sugestão do cliente e armazenar em uma tabela do google sheet, e em troca lhe presentear com um cupom ou qualquer recompensa que o dono do estabelecimento ofereça.</Text>
+            <Swiper slidesPerView={tamanhoTelaWidth < 1024 ? 1.2 : 3.2} spaceBetween={15} loop={true} navigation centeredSlides={true}>
+              {projects.map((item, index) => {
+                return (
+                  <SwiperSlide key={index}>
+                    <Box d='flex' flexDir='column' maxWidth='300px' h='418px' backgroundColor='#28282C' w='full' p='4' borderRadius='4px' marginRight='4'>
+                      <Image src={item.image} borderRadius='4px' h="40%" objectFit="cover" />
+                      <Box h='60%' d='flex' flexDir="column">
+                        <Heading fontSize='lg' textAlign='center' margin='3'>Palpite-Box</Heading>
+                        <Text fontSize='sm' height='55%' overflow="hidden">{item.description}</Text>
 
-                    <Button marginTop='4' onClick={()=> router.push('https://github.com/sanderpaniago/Palpite-box.git')}>Acesse o repositório</Button>
-                  </Box>
-                  
-                </Box>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box d='flex' flexDir='column' maxWidth='300px' maxH='418px' backgroundColor='#28282C' w='full' h='full' p='4' borderRadius='4px' marginRight='4'>
-                  <Image src='https://user-images.githubusercontent.com/52095222/100553774-255f7d00-3266-11eb-9b7f-927c836999c9.gif' borderRadius='4px' />
-                  <Box h='60%'>
-                    <Heading fontSize='lg' textAlign='center' margin='3'>Palpite-Box</Heading>
-                    <Text fontSize='sm'>O projeto tem como objetivo recolher a opinião ou sugestão do cliente e armazenar em uma tabela do google sheet, e em troca lhe presentear com um cupom ou qualquer recompensa que o dono do estabelecimento ofereça.</Text>
-
-                    <Button marginTop='4' onClick={()=> router.push('https://github.com/sanderpaniago/Palpite-box.git')}>Acesse o repositório</Button>
-                  </Box>
-                </Box>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <Box d='flex' flexDir='column' maxWidth='300px' maxH='418px' backgroundColor='#28282C' w='full' h='full' p='4' borderRadius='4px' marginRight='4'>
-                  <Image src='https://user-images.githubusercontent.com/52095222/100553774-255f7d00-3266-11eb-9b7f-927c836999c9.gif' borderRadius='4px' />
-                  <Box h='60%'>
-                    <Heading fontSize='lg' textAlign='center' margin='3'>Palpite-Box</Heading>
-                    <Text fontSize='sm'>O projeto tem como objetivo recolher a opinião ou sugestão do cliente e armazenar em uma tabela do google sheet, e em troca lhe presentear com um cupom ou qualquer recompensa que o dono do estabelecimento ofereça.</Text>
-
-                    <Button marginTop='4' onClick={()=> router.push('https://github.com/sanderpaniago/Palpite-box.git')}>Acesse o repositório</Button>
-                  </Box>
-                  
-                </Box>
-              </SwiperSlide>
-              
+                        <Button marginTop='auto' width="80%">
+                          <Link href={item.linkRep} target="_blank" >Acesse o repositório</Link>
+                        </Button>
+                      </Box>
+                      
+                    </Box>
+                  </SwiperSlide>
+                )
+              })}
             </Swiper>
             </Box>
           </Flex>
